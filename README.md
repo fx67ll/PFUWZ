@@ -1,9 +1,10 @@
-# fx67llUWZ
-A project for uni project ~ Work for WeiXin & ZhiFuBao！
+# PFUWZ
+Project for (UNI) WeiXin & ZhiFuBao！
 
 ## 0.1.0.20210720
 * 确定该项目的下一步方向，主要用于个人简历技能第七项的实例展示  
 * uniapp + 微信小程序 + 微信公众号 + 微信支付对接 + 微信快速登录 + 支持支付宝支付 + 支付宝小程序适配，并使用Java作为后台，开发一套个人演示用的程序，作为面试的项目提供  
 
 ## 0.2.0.20211018
+* 更新项目代号
 * 项目重新启动，并添加适配支付宝小程序的预期
