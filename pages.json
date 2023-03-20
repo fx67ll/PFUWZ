@@ -1,0 +1,275 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// 项目首页
+		{
+			"path": "pages/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+
+		// LTOFE 路由开始
+		{
+			"path": "pages/LTOFE/index/index",
+			"style": {
+				"navigationBarTitleText": "fx67ll tools"
+			}
+		},
+		// LTOFE 路由结束
+
+		// JTCEE 路由开始
+		// 登录
+		{
+			"path": "pages/JTCEE/login/login",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 忘记密码
+		{
+			"path": "pages/JTCEE/login/forget_password",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 通知
+		{
+			"path": "pages/JTCEE/notice/notice_catagory",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 快递消息
+		{
+			"path": "pages/JTCEE/notice/notice_index",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式  
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "60px"
+					}
+				}
+			}
+		},
+		// 消息详情
+		{
+			"path": "pages/JTCEE/notice/notice_detail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 首页
+		{
+			"path": "pages/JTCEE/index/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 运费计算
+		{
+			"path": "pages/JTCEE/index/express_bill",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 联络客服 
+		{
+			"path": "pages/JTCEE/index/help_service",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 扫码
+		{
+			"path": "pages/JTCEE/index/scan_qr",
+			"style": {
+				"navigationStyle": "custom",
+				"disableScroll": true
+			}
+		},
+		// 我的
+		{
+			"path": "pages/JTCEE/user/user_index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 个人设置
+		{
+			"path": "pages/JTCEE/user/user_setting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 邮箱设置
+		{
+			"path": "pages/JTCEE/user/user_mail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 地址一览
+		{
+			"path": "pages/JTCEE/address/address_index",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "150px"
+					}
+				}
+			}
+		},
+		// 地址添加
+		{
+			"path": "pages/JTCEE/address/address_add",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 运单一览
+		{
+			"path": "pages/JTCEE/invoice/invoice_index",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "150px"
+					}
+				}
+			}
+		},
+		// 运单详情
+		{
+			"path": "pages/JTCEE/invoice/invoice_detail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 运单二维码
+		{
+			"path": "pages/JTCEE/invoice/invoice_qr",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 寄件
+		{
+			"path": "pages/JTCEE/express/express_send",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 寄件地址
+		{
+			"path": "pages/JTCEE/express/express_address",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "150px"
+					}
+				}
+			}
+		},
+		// 商品管理
+		{
+			"path": "pages/JTCEE/goods/goods_index",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "110px"
+					}
+				}
+			}
+		},
+		// 添加商品
+		{
+			"path": "pages/JTCEE/goods/goods_add",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 商品种类
+		{
+			"path": "pages/JTCEE/goods/goods_catagory",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 商品详情 
+		{
+			"path": "pages/JTCEE/goods/goods_detail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 选择已关联商品
+		{
+			"path": "pages/JTCEE/goods/goods_choose",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 包裹预报
+		{
+			"path": "pages/JTCEE/package/package_add",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		// 包裹管理
+		{
+			"path": "pages/JTCEE/package/package_index",
+			"style": {
+				"navigationStyle": "custom",
+				// H5开启下拉刷新，不可以自定义设置下拉样式，只可以使用circle样式
+				"enablePullDownRefresh": true,
+				"h5": {
+					"pullToRefresh": {
+						"color": "#5bc797",
+						"offset": "150px"
+					}
+				}
+			}
+		},
+		// 包裹详情
+		{
+			"path": "pages/JTCEE/package/package_detail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
+		// JTCEE 路由结束
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "飞鹰快递",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

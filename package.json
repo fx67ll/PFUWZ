@@ -1,0 +1,26 @@
+{
+  "name": "JTCEE",
+  "version": "0.1.0",
+  "description": "飞鹰快递H5及小程序端",
+  "main": "main.js",
+  "dependencies": {
+    "echarts": "^5.3.3",
+    "fx67ll-vue-ui": "^0.2.22",
+    "moment": "^2.29.4",
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fx67ll/JTCEE.git"
+  },
+  "author": "fx67ll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fx67ll/JTCEE/issues"
+  },
+  "homepage": "https://github.com/fx67ll/JTCEE#readme"
+}
