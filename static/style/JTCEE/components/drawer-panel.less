@@ -1,0 +1,186 @@
+.drawer-item-box {
+	width: 100%;
+	height: 850rpx;
+	border: 1p solid red;
+	overflow: auto !important;
+	.drawer-item {
+		width: calc(100% - @base-gap * 2);
+		margin: 0 auto;
+		padding: 28rpx 0 30rpx 0;
+		.drawer-item-title {
+			width: 100%;
+			font-size: 34rpx;
+			color: #000000;
+			padding-bottom: 30rpx;
+		}
+		.drawer-item-btn {
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			.drawer-item-btn-type {
+				width: calc(33% - 20rpx);
+				height: 75rpx;
+				background-color: #f8f8f8;
+				border-radius: 58rpx;
+				text-align: center;
+				line-height: 75rpx;
+				font-size: 25rpx;
+				color: #4a4a4a;
+				margin: 0 30rpx 20rpx 0;
+			}
+			.drawer-item-btn-type:nth-child(3) {
+				margin-right: 0;
+			}
+			.drawer-item-btn-type-active {
+				background-color: @topic-green;
+				color: #ffffff;
+			}
+			.drawer-item-btn-date {
+				width: 100%;
+				height: 100rpx;
+				text-align: center;
+				border-bottom: 1rpx solid @topic-green;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.drawer-item-btn-date-icon {
+					margin-right: 10rpx;
+				}
+				.drawer-item-btn-date-text {
+					font-size: 30rpx;
+					color: @topic-green;
+					line-height: 100rpx;
+				}
+			}
+			// 如果修改这里注意也要修改组件嵌入的样式
+			picker-view {
+				width: 100%;
+				height: 300rpx;
+				.picker-view-item {
+					line-height: 100rpx;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@drawer-button-height: 76rpx;
+@drawer-button-bottom: 50rpx;
+.drawer-button-box {
+	width: 100%;
+	height: calc(@drawer-button-height + @drawer-button-bottom);
+	position: absolute;
+	background-color: #ffffff;
+	bottom: 0;
+	z-index: 10;
+	padding-top: 22rpx;
+	.drawer-button {
+		width: calc(100% - @base-gap * 2);
+		height: @drawer-button-height;
+		margin: 0 auto;
+		border-radius: 70rpx;
+		display: flex;
+		justify-content: space-between;
+		overflow: hidden;
+		.drawer-button-item {
+			width: 50%;
+			height: 100%;
+			line-height: @drawer-button-height;
+			text-align: center;
+			color: #ffffff;
+			font-size: 28rpx;
+			letter-spacing: 10rpx;
+			text-indent: 10rpx;
+		}
+		.drawer-button-reset {
+			background-color: #f8bb32;
+		}
+		.drawer-button-submit {
+			background-color: @topic-green;
+		}
+	}
+	.drawer-edit {
+		width: calc(100% - 70rpx);
+		height: 52rpx;
+		margin: 20rpx auto 0 auto;
+		display: flex;
+		justify-content: space-between;
+		.drawer-edit-all {
+			width: 40%;
+			font-size: 28rpx;
+			color: #313131;
+			padding-left: 20rpx;
+		}
+		.drawer-edit-button {
+			width: 60%;
+			font-size: 24rpx;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			.drawer-edit-btn {
+				height: 100%;
+				line-height: 52rpx;
+				text-align: center;
+				background-color: #ffffff;
+				border-radius: 40rpx;
+				margin-left: 20rpx;
+				padding: 0 32rpx;
+			}
+			.drawer-edit-btn-delete {
+				border: 1px solid #ff5147;
+				color: #ff5147;
+			}
+			.drawer-edit-btn-quit {
+				border: 1px solid @topic-green;
+				color: @topic-green;
+			}
+		}
+	}
+	.drawer-add {
+		width: calc(100% - 60rpx);
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.drawer-add-scan {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.drawer-add-scan-icon {
+				margin-right: 10rpx;
+				position: relative;
+				top: 2rpx;
+			}
+			text {
+				color: #313131;
+			}
+		}
+		.drawer-add-submit {
+			width: 200rpx;
+			height: 76rpx;
+			background-color: @topic-green;
+			box-shadow: 0px 2px 8px 1px rgba(0, 128, 71, 0.31);
+			border-radius: 70rpx;
+			text-align: center;
+			line-height: 76rpx;
+			color: #ffffff;
+			font-size: 28rpx;
+			letter-spacing: 10rpx;
+			text-indent: 10rpx;
+		}
+	}
+}
+.drawer-button-box-gap {
+	width: 100%;
+	height: calc(@drawer-button-height + @drawer-button-bottom + 50rpx);
+}
+
+.goods-button-box {
+	position: fixed;
+}
+.goods-button-box-gap {
+	width: 100%;
+	height: calc(@drawer-button-height + @drawer-button-bottom - 10rpx);
+}
