@@ -1,0 +1,48 @@
+// 卡片圆角
+@card-radius: 15rpx;
+// 卡片激活高度差
+@active-top: 15rpx;
+.card-two {
+	width: calc(100% - @base-gap * 2);
+	margin: calc(30rpx + @active-top) auto 0 auto;
+	background-color: #ffffff;
+	border-radius: @card-radius;
+	@card-head-height: 96rpx;
+	.card-two-head {
+		width: 100%;
+		height: @card-head-height;
+		display: flex;
+		justify-content: space-between;
+		.card-two-head-item {
+			width: 50%;
+			height: 100%;
+			font-size: 28rpx;
+			text-align: center;
+			line-height: @card-head-height;
+			color: #838383;
+			background: #e9e9e9;
+			border-radius: @card-radius;
+			letter-spacing: 5rpx;
+			text-indent: 5rpx;
+		}
+		.card-two-head-item-active {
+			height: calc(100% + @active-top);
+			line-height: calc(@card-head-height + @active-top);
+			color: #303031;
+			font-size: 32rpx;
+			background-color: #ffffff;
+			position: relative;
+			top: -@active-top;
+		}
+		.card-two-head-item-first {
+			border-radius: @card-radius 0px @card-radius 0px;
+		}
+		.card-two-head-item-second {
+			border-radius: 0px @card-radius 0px @card-radius;
+		}
+	}
+	.card-two-content {
+		width: 100%;
+		padding: 20rpx 0 10rpx 0;
+	}
+}
