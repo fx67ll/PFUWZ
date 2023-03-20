@@ -108,7 +108,7 @@
 								<view class="bill-catagory-info-type">{{ $t('express_bill.catagory.type') }}</view>
 								<view class="bill-catagory-info-bottom">
 									<view class="bill-catagory-info-left">
-										<view class="bill-catagory-info-time">{{ nowDate }}</view>
+										<view class="bill-catagory-info-time">{{ nowDateTime }}</view>
 										<view class="bill-catagory-info-text">{{ $t('express_bill.catagory.info') }}</view>
 									</view>
 									<view class="bill-catagory-info-right">
@@ -188,8 +188,8 @@ export default {
 			tabImgUrlList: ['/static/img/JTCEE/page/bill-sundry-goods.jpg', '/static/img/JTCEE/page/bill-special-line.png', '/static/img/JTCEE/page/bill-high-weight.png'],
 			// tab说明图片地址，微信必须使用http或者https的图片网络地址
 			tabImgUrlListWx: ['/static/img/JTCEE/page/bill-sundry-goods.jpg', '/static/img/JTCEE/page/bill-special-line.png', '/static/img/JTCEE/page/bill-high-weight.png'],
-			// 当前时间
-			nowDate: moment().format('YYYY-MM-DD HH:mm')
+			// 当前日期时间
+			nowDateTime: moment().format('YYYY-MM-DD HH:mm')
 		};
 	},
 	computed: {

@@ -21,7 +21,7 @@
 			<view class="invoice-item-top">
 				<view class="invoice-item-order-id invoice-item-order-green">
 					<text class="invoice-item-order-type">{{ $t('invoice_detail.id') }}：</text>
-					<text class="invoice-item-order-number">ST232354565</text>
+					<text class="invoice-item-order-number">ST{{ Math.round(Math.random() * (9999999999 - 1) + 1) }}</text>
 					<img class="invoice-item-order-copy" src="/static/img/JTCEE/invoice/invoice-copy.png" @click="getOrderId('ST232354565')" />
 				</view>
 				<view class="invoice-item-order-detail" @click="getOrderQr">
@@ -64,21 +64,21 @@
 						}"
 					>
 						<img src="/static/img/JTCEE/invoice/invoice_yqs.png" v-if="item.status === 1" />
-						<img src="/static/img/JTCEE/invoice/invoice_yn.png" v-if="item.status === 2"/>
-						<img src="/static/img/JTCEE/invoice/invoice_zl.png" v-if="item.status === 3"/>
-						<img src="/static/img/JTCEE/invoice/invoice_cswqs.png" v-if="item.status === 4"/>
-						<img src="/static/img/JTCEE/invoice/invoice_jq.png" v-if="item.status === 5"/>
-						<img src="/static/img/JTCEE/invoice/invoice_th.png" v-if="item.status === 6"/>
-						<img src="/static/img/JTCEE/invoice/invoice_dqj.png" v-if="item.status === 7"/>
-						<img src="/static/img/JTCEE/invoice/invoice_psz.png" v-if="item.status === 8"/>
-						<img src="/static/img/JTCEE/invoice/invoice_ysz.png" v-if="item.status === 9"/>
-						<img src="/static/img/JTCEE/invoice/invoice_qgz.png" v-if="item.status === 10"/>
-						<img src="/static/img/JTCEE/invoice/invoice_yqs.png" v-if="item.status === 11"/>
-						<img src="/static/img/JTCEE/invoice/invoice_yck.png" v-if="item.status === 12"/>
-						<img src="/static/img/JTCEE/invoice/invoice_yls.png" v-if="item.status === 13"/>
-						<img src="/static/img/JTCEE/invoice/invoice_lsz.png" v-if="item.status === 14"/>
-						<img src="/static/img/JTCEE/invoice/invoice_yld.png" v-if="item.status === 15"/>
-						<img src="/static/img/JTCEE/invoice/invoice_ldz.png" v-if="item.status === 16"/>
+						<img src="/static/img/JTCEE/invoice/invoice_yn.png" v-if="item.status === 2" />
+						<img src="/static/img/JTCEE/invoice/invoice_zl.png" v-if="item.status === 3" />
+						<img src="/static/img/JTCEE/invoice/invoice_cswqs.png" v-if="item.status === 4" />
+						<img src="/static/img/JTCEE/invoice/invoice_jq.png" v-if="item.status === 5" />
+						<img src="/static/img/JTCEE/invoice/invoice_th.png" v-if="item.status === 6" />
+						<img src="/static/img/JTCEE/invoice/invoice_dqj.png" v-if="item.status === 7" />
+						<img src="/static/img/JTCEE/invoice/invoice_psz.png" v-if="item.status === 8" />
+						<img src="/static/img/JTCEE/invoice/invoice_ysz.png" v-if="item.status === 9" />
+						<img src="/static/img/JTCEE/invoice/invoice_qgz.png" v-if="item.status === 10" />
+						<img src="/static/img/JTCEE/invoice/invoice_yqs.png" v-if="item.status === 11" />
+						<img src="/static/img/JTCEE/invoice/invoice_yck.png" v-if="item.status === 12" />
+						<img src="/static/img/JTCEE/invoice/invoice_yls.png" v-if="item.status === 13" />
+						<img src="/static/img/JTCEE/invoice/invoice_lsz.png" v-if="item.status === 14" />
+						<img src="/static/img/JTCEE/invoice/invoice_yld.png" v-if="item.status === 15" />
+						<img src="/static/img/JTCEE/invoice/invoice_ldz.png" v-if="item.status === 16" />
 					</view>
 					<view class="invoice-detail-info-card-line"></view>
 				</view>
@@ -94,6 +94,7 @@
 
 <script>
 import uniIcons from '@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue';
+import moment from '@/node_modules/moment';
 export default {
 	components: {
 		uniIcons
@@ -117,97 +118,129 @@ export default {
 			expressListData: [
 				{
 					title: '已签收',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已签收，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 1
 				},
 				{
 					title: '疑难',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件发生疑难，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 2
 				},
 				{
 					title: '滞留',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件发生滞留，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 3
 				},
 				{
 					title: '超时未签收',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件超时未签收，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 4
 				},
 				{
 					title: '拒签',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已拒签，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 5
 				},
 				{
 					title: '退回',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已退回，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 6
 				},
 				{
 					title: '待取件',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件待取件，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 7
 				},
 				{
 					title: '派送中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件派送中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 8
 				},
 				{
 					title: '运输中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件运输中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 9
 				},
 				{
 					title: '清关中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件清关中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 10
 				},
 				{
 					title: '已出库',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已出库，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 11
 				},
 				{
 					title: '出库中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件出库中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 12
 				},
 				{
 					title: '已揽收',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已揽收，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 13
 				},
 				{
 					title: '揽收中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件揽收中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 14
 				},
 				{
 					title: '已录单',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件已录单，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 15
 				},
 				{
 					title: '录单中',
-					create_time: '2022-06-18 18:06:57',
+					create_time: `${moment()
+						.subtract(Math.round(Math.random() * (600 - 1) + 1), 'minutes')
+						.format('YYYY-MM-DD HH:mm:ss')}`,
 					content: '您的快件录单中，如有疑问请电联快递员[何瑞瑞， 电话18866661111]。感谢您使用神鹰快递，期待再次为您服务。',
 					status: 16
 				}

@@ -57,7 +57,7 @@
 						}"
 					>
 						<text class="package-item-order-type">{{ $t('package_index.card.id') }}：</text>
-						<text class="package-item-order-number">ST232354565</text>
+						<text class="package-item-order-number">ST{{ Math.round(Math.random() * (9999999999 - 1) + 1) }}</text>
 						<img class="package-item-order-copy" src="/static/img/JTCEE/invoice/invoice-copy.png" @click="getOrderId('ST232354565')" />
 					</view>
 					<view class="package-item-order-detail" @click="getOrderDetail">

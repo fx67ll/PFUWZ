@@ -52,7 +52,7 @@
 										{{ $t('goods_index.goods.status.yes') }}
 									</text>
 								</view>
-								<view class="goods-pull-item-money">￥ 1999.99</view>
+								<view class="goods-pull-item-money">￥ {{Math.round(Math.random() * (1999 - 1599) + 1599)}}</view>
 							</view>
 						</view>
 					</uni-swipe-action-item>
@@ -86,7 +86,7 @@
 									{{ $t('goods_index.goods.status.yes') }}
 								</text>
 							</view>
-							<view class="goods-pull-item-money">￥ 1999.99</view>
+							<view class="goods-pull-item-money">￥ {{Math.round(Math.random() * (1999 - 1599) + 1599)}}</view>
 						</view>
 					</view>
 				</view>

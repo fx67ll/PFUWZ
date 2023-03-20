@@ -20,7 +20,7 @@
 		<view class="invoice-qr-card">
 			<view class="invoice-qr-card-top">
 				<text>{{ $t('invoice_qr.id') }}：</text>
-				<text>ST232354565</text>
+				<text>ST{{ Math.round(Math.random() * (9999999999 - 1) + 1) }}</text>
 				<img class="invoice-qr-copy" src="/static/img/JTCEE/invoice/invoice-copy-qr.png" @click="getOrderId('ST232354565')" />
 			</view>
 			<view class="invoice-qr-card-bottom">

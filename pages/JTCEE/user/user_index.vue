@@ -126,6 +126,7 @@
 
 <script>
 import { dateArray, dateIndex } from '@/static/utils/uni-date-picker.js';
+import moment from '@/node_modules/moment';
 
 // #ifdef H5
 import * as echarts from '@/node_modules/echarts';
@@ -198,6 +199,7 @@ export default {
 		chooseChartDate(e) {
 			console.log('修改的列为：' + e.detail.column + '，值为：' + e.detail.value);
 			this.chartIndex[e.detail.column] = e.detail.value;
+			this.initChart();
 			this.$forceUpdate();
 		},
 		initChart() {
@@ -213,7 +215,36 @@ export default {
 				},
 				xAxis: {
 					type: 'category',
-					data: ['2022-06-01', '2022-06-02', '2022-06-03', '2022-06-04', '2022-06-05', '2022-06-06', '2022-06-07', '2022-06-08', '2022-06-09', '2022-06-10'],
+					data: [
+						`${moment()
+							.subtract(9, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(8, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(7, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(6, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(5, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(4, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(3, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(2, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment()
+							.subtract(1, 'days')
+							.format('YYYY-MM-DD')}`,
+						`${moment().format('YYYY-MM-DD')}`
+					],
 					axisLine: {
 						lineStyle: {
 							color: '#E9E9E9'
@@ -243,7 +274,18 @@ export default {
 				},
 				series: [
 					{
-						data: [100, 500, 550, 600, 420, 520, 400, 300, 500, 100],
+						data: [
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444),
+							Math.round(Math.random() * (4444 - 444) + 444)
+						],
 						type: 'line',
 						smooth: true,
 						color: '#5BC797',

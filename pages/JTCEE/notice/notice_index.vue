@@ -22,11 +22,11 @@
 				<view class="notice-item-content">您有来自南京市的快递已被签收，感谢您神鹰快递，后续快件问题可以联系客服查询</view>
 				<view class="notice-item-info">
 					<view class="notice-item-info-title">{{ $t('notice_index.express.id') }}</view>
-					<view class="notice-item-info-text">ST31246576879</view>
+					<view class="notice-item-info-text">ST{{ Math.round(Math.random() * (9999999999 - 1) + 1) }}</view>
 				</view>
 				<view class="notice-item-info">
 					<view class="notice-item-info-title">{{ $t('notice_index.express.time') }}</view>
-					<view class="notice-item-info-text">2022-05-29 11:32</view>
+					<view class="notice-item-info-text">{{ nowDateTime }}</view>
 				</view>
 				<view class="notice-item-thanks">感谢您对神通速递的支持，期待下次见面吧！</view>
 				<view class="notice-item-more" @click="getNoticeDetail">{{ $t('notice_index.more') }}</view>
@@ -37,6 +37,7 @@
 </template>
 <script>
 import uniIcons from '@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue';
+import moment from '@/node_modules/moment';
 export default {
 	components: {
 		uniIcons
@@ -55,7 +56,9 @@ export default {
 			listData: [],
 			loadMoreText: this.$t('pull.refresh.loading'),
 			showLoadMore: false,
-			maxDataIndex: 0
+			maxDataIndex: 0,
+			// 当前日期时间
+			nowDateTime: moment().format('YYYY-MM-DD HH:mm')
 		};
 	},
 	onShow() {

@@ -46,7 +46,7 @@
 								{{ $t('goods_index.goods.status.yes') }}
 							</text>
 						</view>
-						<view class="goods-pull-item-money">￥ 1999.99</view>
+						<view class="goods-pull-item-money">￥ {{ Math.round(Math.random() * (1999 - 1599) + 1599) }}</view>
 					</view>
 				</view>
 			</view>
@@ -162,12 +162,12 @@ export default {
 		},
 		getGoodsAndBack() {
 			// 这里的解析后续如果数据结构复杂，考虑使用vuex
-			
+
 			// #ifdef H5
 			localStorage.setItem('key', 'value');
 			console.log(localStorage.getItem('key'));
 			// #endif
-			
+
 			// 微信端不支持localStorage
 			// #ifdef MP-WEIXIN
 			wx.setStorage({

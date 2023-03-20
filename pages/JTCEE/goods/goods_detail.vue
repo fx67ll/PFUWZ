@@ -45,7 +45,7 @@
 		<view class="goods-info">
 			<view class="goods-price">
 				<text>￥</text>
-				999999
+				{{ Math.round(Math.random() * (1999 - 1599) + 1599) }}
 			</view>
 			<view class="goods-status">
 				<text class="goods-status-text goods-status-orange" v-if="1 !== 1">{{ $t('goods_index.goods.status.no') }}</text>

@@ -119,7 +119,7 @@
 					>
 						<text class="invoice-item-order-type" v-if="index < 1">{{ $t('invoice_index.card.id.a') }}：</text>
 						<text class="invoice-item-order-type" v-if="index >= 1">{{ $t('invoice_index.card.id.b') }}：</text>
-						<text class="invoice-item-order-number">ST232354565</text>
+						<text class="invoice-item-order-number">ST{{ Math.round(Math.random() * (9999999999 - 1) + 1) }}</text>
 						<img class="invoice-item-order-copy" src="/static/img/JTCEE/invoice/invoice-copy.png" @click="getOrderId('ST232354565')" />
 					</view>
 					<view class="invoice-item-order-detail" @click="getOrderDetail">
@@ -161,7 +161,7 @@
 					</view>
 					<view class="invoice-item-time">
 						<text>{{ $t('invoice_index.card.time') }}：</text>
-						<text>2022-06-18</text>
+						<text>{{ nowDateTime }}</text>
 					</view>
 				</view>
 
@@ -194,6 +194,7 @@ import vTabs from '@/uni_modules/v-tabs/v-tabs.vue';
 import { dataYears, dataMonths, pickerViewMonth } from '@/static/utils/uni-date-picker.js';
 import pxToRpx from '@/static/utils/px-to-rpx.js';
 import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue';
+import moment from '@/node_modules/moment';
 export default {
 	components: {
 		uniIcons,
@@ -232,7 +233,9 @@ export default {
 			pickerViewYears: dataYears,
 			pickerViewMonths: dataMonths,
 			pickerViewValue: [9999, pickerViewMonth - 1],
-			pickerViewIndicatorStyle: 'height: 100rpx;'
+			pickerViewIndicatorStyle: 'height: 100rpx;',
+			// 当前日期时间
+			nowDateTime: moment().format('YYYY-MM-DD HH:mm')
 		};
 	},
 	onShow() {

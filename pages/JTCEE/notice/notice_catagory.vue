@@ -18,7 +18,7 @@
 				<view class="notice-item-right">
 					<view class="notice-item-right-top">
 						<view class="notice-item-right-title">{{ $t('notice_catagory.notice.express') }}</view>
-						<view class="notice-item-right-date">2022-06-18</view>
+						<view class="notice-item-right-date">{{ nowDateA }}</view>
 					</view>
 					<view class="notice-item-right-content">每周六寄件享免费领取100元寄件礼包，更有惊喜。您有来自南京市的快递已被签收，感谢您使用。</view>
 				</view>
@@ -28,7 +28,7 @@
 				<view class="notice-item-right">
 					<view class="notice-item-right-top">
 						<view class="notice-item-right-title">{{ $t('notice_catagory.notice.public') }}</view>
-						<view class="notice-item-right-date">2022-06-12</view>
+						<view class="notice-item-right-date">{{ nowDateB }}</view>
 					</view>
 					<view class="notice-item-right-content">每周六寄件享免费领取100元寄件礼包，更有惊喜。您有来自南京市的快递已被签收，感谢您使用。</view>
 				</view>
@@ -52,6 +52,7 @@
 <script>
 import uniIcons from '@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue';
 import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue';
+import moment from '@/node_modules/moment';
 export default {
 	components: {
 		uniIcons,
@@ -64,7 +65,12 @@ export default {
 			// 状态栏高度，用于微信小程序适配
 			statusBarHeight: 0,
 			// 来自哪个位置按钮，1首页，2我的
-			fromType: '1'
+			fromType: '1',
+			// 当前日期
+			nowDateA: moment()
+				.subtract(3, 'days')
+				.format('YYYY-MM-DD'),
+			nowDateB: moment().format('YYYY-MM-DD')
 		};
 	},
 	onLoad(option) {
@@ -91,7 +97,7 @@ export default {
 		confirmErrorDialog() {
 			uni.reLaunch({
 				url: '/pages/JTCEE/index/index'
-			})
+			});
 		},
 		readAll() {
 			console.log('全部已读ing...');
