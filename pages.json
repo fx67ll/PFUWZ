@@ -7,6 +7,15 @@
 				"navigationStyle": "custom"
 			}
 		},
+		
+		// 扫码演示单独拎出来
+		{
+			"path": "pages/JTCEE/index/scan_qr_for_index",
+			"style": {
+				"navigationStyle": "custom",
+				"disableScroll": true
+			}
+		},
 
 		// LTOFE 路由开始
 		{
