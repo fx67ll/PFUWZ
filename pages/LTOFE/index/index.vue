@@ -452,26 +452,12 @@ export default {
 		},
 		// 保存设置
 		saveLuckySetting() {
-			let self = this;
-			uni.setClipboardData({
-				data: this.copyTextContent,
-				showToast: false,
-				success: function() {
-					uni.showToast({
-						title: '设置保存成功啦~',
-						icon: 'none',
-						duration: 1998
-					});
-					self.isShowDrawer = false;
-				},
-				fail: function() {
-					uni.showToast({
-						title: '卧槽设置保存失败了！请联系管理员~',
-						icon: 'none',
-						duration: 1998
-					});
-				}
+			uni.showToast({
+				title: '设置保存成功啦~',
+				icon: 'none',
+				duration: 1998
 			});
+			this.isShowDrawer = false;
 		},
 		// 上传图片
 		importLuckyImg(type) {
@@ -492,6 +478,7 @@ export default {
 					self.lottoryTicketArr.push(res.tempFilePaths[0]);
 					self.drawerHeight = '80%';
 					self.isShowDrawer = true;
+					self.showImgDevTip();
 				},
 				// 接口调用失败的回调函数，小程序、App
 				fail: function(res) {
@@ -520,6 +507,7 @@ export default {
 					self.lottoryTicketArr.push(res.tempFiles[0].tempFilePath);
 					self.drawerHeight = '80%';
 					self.isShowDrawer = true;
+					self.showImgDevTip();
 				},
 				fail(res) {
 					// console.log('微信文件图片上传接口调用失败:' + JSON.stringify(res));
@@ -529,6 +517,14 @@ export default {
 				}
 			});
 			// #endif
+		},
+		// 上传图片功能研发中
+		showImgDevTip() {
+			uni.showToast({
+				title: '上传照片自动 OCR 分析识别功能正在紧张研发中，敬请期待！',
+				icon: 'none',
+				duration: 5000
+			});
 		},
 		// 删除上传图片（功能暂时不需要）
 		deleteImportImg(type) {
@@ -565,7 +561,7 @@ export default {
 		useCamera() {
 			// #ifdef H5
 			uni.navigateTo({
-				url: '/pages/scan/scan_qr'
+				url: '/pages/LTOFE/scan/scan_qr'
 			});
 			// #endif
 

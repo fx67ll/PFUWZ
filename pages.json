@@ -7,7 +7,7 @@
 				"navigationStyle": "custom"
 			}
 		},
-		
+
 		// 扫码演示单独拎出来
 		{
 			"path": "pages/JTCEE/index/scan_qr_for_index",
@@ -20,6 +20,12 @@
 		// LTOFE 路由开始
 		{
 			"path": "pages/LTOFE/index/index",
+			"style": {
+				"navigationBarTitleText": "fx67ll tools"
+			}
+		},
+		{
+			"path": "pages/LTOFE/scan/scan_qr",
 			"style": {
 				"navigationBarTitleText": "fx67ll tools"
 			}
