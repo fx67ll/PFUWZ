@@ -29,7 +29,7 @@ export default {
 	padding: 80rpx 50rpx;
 	.fx67ll-title-box {
 		text-align: center;
-		font-size: 40rpx;
+		font-size: 60rpx;
 		color: #2ecc71;
 	}
 	.fx67ll-link-box {
