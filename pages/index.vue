@@ -56,7 +56,7 @@ export default {
 			text-align: center;
 			margin-bottom: 40rpx;
 			.uni-link{
-				// color: #fff !important;
+				color: #fff !important;
 				font-size: 44rpx !important;
 			}
 		}
