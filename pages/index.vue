@@ -66,6 +66,7 @@ export default {
 	}
 	.fx67ll-background {
 		position: absolute;
+		top: 0;
 		z-index: @textZindex - 1;
 	}
 }
