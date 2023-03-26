@@ -2,9 +2,9 @@
 	<view class="fx67ll-nav-box">
 		<view class="fx67ll-title-box">fx67ll's uni-app 个人作品示例</view>
 		<view class="fx67ll-link-box">
-			<view class="fx67ll-nav-item"><uni-link :href="urlQR" text="H5二维码在线扫码示例" showUnderLine="false" font-size="20"></uni-link></view>
-			<view class="fx67ll-nav-item"><uni-link :href="urlJTCEE" text="跨境速递演示项目示例" showUnderLine="false" font-size="20"></uni-link></view>
-			<view class="fx67ll-nav-item"><uni-link :href="urlLTOFE" text="彩票选号辅助工具示例" showUnderLine="false" font-size="20"></uni-link></view>
+			<view class="fx67ll-nav-item"><uni-link :href="urlQR" text="H5二维码在线扫码" showUnderLine="false" font-size="20"></uni-link></view>
+			<view class="fx67ll-nav-item"><uni-link :href="urlJTCEE" text="跨境速递演示项目" showUnderLine="false" font-size="20"></uni-link></view>
+			<view class="fx67ll-nav-item"><uni-link :href="urlLTOFE" text="彩票选号辅助工具" showUnderLine="false" font-size="20"></uni-link></view>
 			<view class="fx67ll-nav-item"><uni-link href="https://fx67ll.com" text="地图示例开发中，敬请期待" showUnderLine="false" font-size="20"></uni-link></view>
 		</view>
 		<web-view

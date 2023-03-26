@@ -11,7 +11,7 @@
 			<!-- #endif -->
 			<view class="top-nav" :style="{ '--statusbarheight': statusBarHeight }">
 				<view class="top-nav-back"><uni-icons class="top-nav-back-icon" type="back" size="24" color="#242424" @click="goBack"></uni-icons></view>
-				<view class="top-nav-title">H5二维码在线扫码示例</view>
+				<view class="top-nav-title">H5二维码在线扫码</view>
 				<view class="top-nav-btn"></view>
 			</view>
 			<view class="top-nav-fake"></view>
