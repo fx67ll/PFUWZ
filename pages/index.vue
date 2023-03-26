@@ -8,7 +8,7 @@
 			<view class="fx67ll-nav-item"><uni-link href="https://fx67ll.com" text="地图示例开发中，敬请期待" showUnderLine="false" font-size="20"></uni-link></view>
 		</view>
 		<web-view
-			class="fx67ll-nav-background"
+			class="fx67ll-background"
 			:style="{ '--clientheight': clientHeight }"
 			src="https://test.fx67ll.com/fx67ll-background-collection/html/shootingStars/shootingStars.html"
 		></web-view>
