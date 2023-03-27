@@ -24,7 +24,23 @@
 			}
 		}
 	}
-	.fx67ll-egg-box{
+	@lcheight: 400rpx;
+	.fx67ll-lucky-box {
+		width: 100%;
+		.fx67ll-lucky-bumber {
+			width: 100%;
+			height: @lcheight;
+			line-height: @lcheight;
+			text-align: center;
+			font-size: 200rpx;
+			color: #e64340;
+		}
+		.fx67ll-lucky-title {
+			width: 100%;
+			text-align: center;
+			position: relative;
+			animation: jumpTip 0.4s linear infinite alternate;
+		}
 	}
 }
 
@@ -81,5 +97,15 @@
 	}
 	.fx67ll-setting-item:last-child {
 		margin-bottom: 0;
+	}
+}
+
+@keyframes jumpTip {
+	from {
+		top: -20px;
+	}
+
+	to {
+		top: -10px;
 	}
 }
