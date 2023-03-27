@@ -21,8 +21,8 @@
 					@click="isLuckyDay">点击看看今天运势如何</button></div>
 		</div>
 		<div class="fx67ll-lucky-box" v-if="settingInfo.todayLuckyNumber">
-			<!-- <div class="fx67ll-lucky-title">今日幸运数字</div> -->
 			<div class="fx67ll-lucky-bumber">{{ settingInfo.todayLuckyNumber }}</div>
+			<div class="fx67ll-lucky-title">今日幸运数字</div>
 		</div>
 
 		<!-- 页面底部抽屉 -->
@@ -328,7 +328,6 @@
 				let self = this;
 				if (this.settingInfo.isNeedLuckyNumber) {
 					let hasTodayLuckyNumber = false;
-					console.log(this.luckyNumberList);
 					this.luckyNumberList.forEach(function(item) {
 						item.lottoryNumberFirst.forEach(function(ita) {
 							// #ifdef H5
