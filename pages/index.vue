@@ -1,6 +1,6 @@
 <template>
 	<view class="fx67ll-nav-box">
-		<view class="fx67ll-title-box">fx67ll's uni-app 作品合集</view>
+		<view class="fx67ll-title-box">fx67ll's uni-app 作品示例合集</view>
 		<view class="fx67ll-link-box">
 			<view class="fx67ll-nav-item"><uni-link :href="urlQR" text="H5二维码在线扫码" showUnderLine="false"
 					font-size="20"></uni-link></view>
@@ -8,7 +8,7 @@
 					font-size="20"></uni-link></view>
 			<view class="fx67ll-nav-item"><uni-link :href="urlLTOFE" text="彩票选号辅助工具" showUnderLine="false"
 					font-size="20"></uni-link></view>
-			<view class="fx67ll-nav-item"><uni-link href="https://map.fx67ll.com//mapcanvas" text="地图示例开发中，敬请期待"
+			<view class="fx67ll-nav-item"><uni-link href="https://map.fx67ll.com/mapcanvas" text="地图示例开发中，敬请期待"
 					showUnderLine="false" font-size="20"></uni-link></view>
 		</view>
 		<web-view class="fx67ll-background" :style="{ '--clientheight': clientHeight }"
@@ -42,20 +42,20 @@
 	@textZindex: 2;
 
 	.fx67ll-nav-box {
-		padding: 80rpx 50rpx;
+		padding: 80rpx 60rpx;
 
 		.fx67ll-title-box {
 			position: relative;
 			z-index: @textZindex;
 			text-align: center;
-			font-size: 56rpx;
+			font-size: 62rpx;
 			color: #2ecc71;
 		}
 
 		.fx67ll-link-box {
 			position: relative;
 			z-index: @textZindex;
-			padding-top: 80rpx;
+			padding-top: 100rpx;
 
 			.fx67ll-nav-item {
 				text-align: center;
@@ -63,7 +63,7 @@
 
 				.uni-link {
 					color: #fff !important;
-					font-size: 40rpx !important;
+					font-size: 44rpx !important;
 				}
 			}
 
