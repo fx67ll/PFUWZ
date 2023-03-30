@@ -86,9 +86,10 @@
         "sdkConfigs" : {
             "maps" : {}
         },
-        "title" : "uni.fx67ll.com",
+        "title" : "fx67ll's uni-app",
         "devServer" : {
             "https" : false
-        }
+        },
+        "template" : "index_template.html"
     }
 }
