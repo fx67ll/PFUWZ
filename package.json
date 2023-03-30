@@ -1,7 +1,7 @@
 {
   "name": "PFUWZ",
   "version": "0.1.0",
-  "description": "fx67ll's uni-app projects",
+  "description": "fx67ll's uni-app",
   "main": "main.js",
   "dependencies": {
     "echarts": "^5.3.3",
