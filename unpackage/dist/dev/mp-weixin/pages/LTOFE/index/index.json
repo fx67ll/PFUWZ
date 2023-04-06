@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "fx67ll tools",
+  "usingComponents": {
+    "zb-drawer-l-t-o-f-e": "/uni_modules/zb-drawer-LTOFE/components/zb-drawer-LTOFE/zb-drawer-LTOFE"
+  }
+}

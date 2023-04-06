@@ -1,0 +1,1 @@
+<view class="fx67ll-tools-box"><zb-drawer-l-t-o-f-e vue-id="6b6cdf03-1" mode="bottom" title="{{drawerTitle}}" wrapperClosable="{{false}}" visible="{{isShowDrawer}}" radius="{{true}}" height="{{drawerHeight}}" data-event-opts="{{[['^updateVisible',[['__set_sync',['$0','isShowDrawer','$event'],['']]]]]}}" bind:updateVisible="__e" bind:__l="__l"></zb-drawer-l-t-o-f-e></view>

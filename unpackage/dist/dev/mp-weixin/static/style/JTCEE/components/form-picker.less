@@ -1,0 +1,37 @@
+// 选择器组件公共样式
+.form-picker{
+	width: calc(100% - @base-gap * 2);
+	height: @form-item-height;
+	border-bottom: 1rpx solid @topic-split;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	.form-picker-title{
+		font-size: 30rpx;
+		color: #303031;
+	}
+	.form-picker-choose {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		min-width: 300rpx;
+		.form-picker-text-placeholder {
+			font-size: 28rpx;
+			color: #bfbfbf;
+			margin-right: 20rpx;
+		}
+		.form-picker-text {
+			font-size: 28rpx;
+			color: #000000;
+			margin-right: 20rpx;
+		}
+		.form-picker-date {
+			width: 160rpx;
+			margin-right: 15rpx;
+		}
+		.form-picker-icon {
+			margin-right: 15rpx;
+		}
+	}
+}

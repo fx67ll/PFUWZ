@@ -33,7 +33,7 @@
 			line-height: @lcheight;
 			text-align: center;
 			font-size: 200rpx;
-			color: #e64340;
+			color: @topic-red;
 		}
 		.fx67ll-lucky-title {
 			width: 100%;
@@ -98,6 +98,13 @@
 	.fx67ll-setting-item:last-child {
 		margin-bottom: 0;
 	}
+	.fx67ll-setting-tip {
+		font-size: 26rpx;
+		color: @topic-red;
+		text {
+			padding: 0 10rpx;
+		}
+	}
 }
 
 @keyframes jumpTip {
@@ -109,3 +116,39 @@
 		top: -10px;
 	}
 }
+
+@-webkit-keyframes jumpTip {
+	from {
+		top: -20px;
+	}
+
+	to {
+		top: -10px;
+	}
+}
+
+// 图标加载样式
+.fx67ll-btn-loading {
+	animation: spinInfinite 1s linear infinite;
+}
+
+@keyframes spinInfinite {
+	from {
+		transform: rotate(360deg);
+	}
+
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+@-webkit-keyframes spinInfinite {
+	from {
+		transform: rotate(360deg);
+	}
+
+	to {
+		transform: rotate(0deg);
+	}
+}
+

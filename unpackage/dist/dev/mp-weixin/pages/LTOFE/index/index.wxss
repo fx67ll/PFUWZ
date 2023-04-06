@@ -1,0 +1,255 @@
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.text-ellipsis-two {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.status_bar {
+  height: 25px;
+  width: 100%;
+  z-index: 10;
+}
+.top-nav {
+  width: 100%;
+  height: 88rpx;
+  position: fixed;
+  top: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.top-nav .top-nav-back {
+  width: 25%;
+}
+.top-nav .top-nav-back .top-nav-back-icon {
+  padding: 15rpx 15rpx 15rpx 30rpx;
+}
+.top-nav .top-nav-title {
+  width: 45%;
+  text-align: center;
+  font-size: 34rpx;
+  color: #000000;
+}
+.top-nav .top-nav-btn {
+  width: calc(25% - 30rpx);
+  text-align: right;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+  color: #838383;
+  position: relative;
+  top: 3rpx;
+}
+.top-nav-fake {
+  width: 100%;
+  height: 88rpx;
+}
+.top-nav-search {
+  width: 100%;
+  height: 80rpx;
+  background-color: #ffffff;
+  position: fixed;
+  top: 88rpx;
+  z-index: 10;
+}
+.top-nav-search .nav-search-box {
+  width: calc(100% - 30rpx * 2);
+  height: 72rpx;
+  background-color: #F8F8F8;
+  margin: calc(80rpx - 72rpx) auto 0 auto;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-nav-search .nav-search-box .nav-search-icon {
+  position: relative;
+  left: 26rpx;
+  top: -2rpx;
+}
+.top-nav-search .nav-search-box .nav-search-input {
+  width: calc(100% - 80rpx);
+  height: 100%;
+  font-size: 24rpx;
+}
+.top-nav-search .nav-search-box .nav-input-placeholder {
+  font-size: 28rpx;
+  color: #c8c8c8;
+}
+.nav-search-box-invoice {
+  width: calc(100% - 30rpx * 2);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-search-box-invoice .nav-search-box {
+  width: calc(100% - 140rpx);
+}
+.nav-search-box-invoice .nav-search-filter {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #313131;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  top: 10rpx;
+}
+.nav-search-box-invoice .nav-search-filter .nav-search-filter-text {
+  margin-right: 8rpx;
+}
+.nav-search-box-invoice .nav-search-filter .nav-search-filter-icon {
+  margin-right: 20rpx;
+  position: relative;
+  top: 1rpx;
+}
+.top-nav-tab {
+  width: 100%;
+  height: 100rpx;
+  background-color: #ffffff;
+  position: fixed;
+  top: calc(88rpx + 80rpx);
+  z-index: 10;
+}
+.top-nav-tab .nav-tab-box {
+  margin: 0 auto;
+}
+.top-nav-tab .nav-tab-box-two {
+  width: 75%;
+}
+.top-nav-tab .nav-tab-box-four {
+  width: 100%;
+}
+.top-nav-tab .nav-tab-box-three {
+  width: 100%;
+}
+.top-nav-fake-high {
+  width: 100%;
+  height: calc(88rpx + 80rpx + 100rpx);
+}
+.top-nav-fake-middle {
+  width: 100%;
+  height: calc(88rpx + 80rpx);
+}
+.fx67ll-tools-box {
+  padding: 50rpx;
+}
+.fx67ll-tools-box .fx67ll-btn-box {
+  padding-bottom: 50rpx;
+}
+.fx67ll-tools-box .fx67ll-btn-box .fx67ll-btn-item {
+  margin-bottom: 40rpx;
+}
+.fx67ll-tools-box .fx67ll-btn-box .fx67ll-btn-item:last-child {
+  margin-bottom: 0;
+}
+.fx67ll-tools-box .fx67ll-btn-box .fx67ll-btn-item-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fx67ll-tools-box .fx67ll-btn-box .fx67ll-btn-item-two .fx67ll-btn-default {
+  width: calc(100% - 60rpx);
+}
+.fx67ll-tools-box .fx67ll-btn-box .fx67ll-btn-item-two .fx67ll-btn-icon {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0 10rpx 0 20rpx;
+}
+.fx67ll-tools-box .fx67ll-lucky-box {
+  width: 100%;
+}
+.fx67ll-tools-box .fx67ll-lucky-box .fx67ll-lucky-bumber {
+  width: 100%;
+  height: 400rpx;
+  line-height: 400rpx;
+  text-align: center;
+  font-size: 200rpx;
+  color: #e64340;
+}
+.fx67ll-tools-box .fx67ll-lucky-box .fx67ll-lucky-title {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  -webkit-animation: jumpTip 0.4s linear infinite alternate;
+          animation: jumpTip 0.4s linear infinite alternate;
+}
+.fx67ll-number-box {
+  padding: 70rpx;
+}
+.fx67ll-number-box .fx67ll-number-item {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+.fx67ll-number-box .fx67ll-number-item ._span {
+  width: 50rpx;
+}
+.fx67ll-btn-submit {
+  width: calc(100% - 40rpx * 2);
+  position: absolute;
+  bottom: 40rpx;
+  left: 40rpx;
+}
+.fx67ll-drawer-img {
+  height: 100%;
+  overflow-y: auto;
+  padding: 30rpx;
+  position: relative;
+}
+.fx67ll-drawer-img .fx67ll-img-icon {
+  position: absolute;
+  top: 44rpx;
+  right: 44rpx;
+}
+.fx67ll-drawer-img .fx67ll-img-lottory {
+  width: 100%;
+}
+.fx67ll-drawer-setting {
+  padding: 50rpx 60rpx 60rpx 60rpx;
+}
+.fx67ll-drawer-setting .fx67ll-setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.fx67ll-drawer-setting .fx67ll-setting-item .fx67ll-setting-switch {
+  zoom: 0.7;
+}
+.fx67ll-drawer-setting .fx67ll-setting-item:last-child {
+  margin-bottom: 0;
+}
+@-webkit-keyframes jumpTip {
+from {
+    top: -20px;
+}
+to {
+    top: -10px;
+}
+}
+@keyframes jumpTip {
+from {
+    top: -20px;
+}
+to {
+    top: -10px;
+}
+}
+

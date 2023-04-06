@@ -1,0 +1,245 @@
+@import url('@/static/style/JTCEE/components/form-picker.less');
+@import url('@/static/style/JTCEE/components/form-number.less');
+@import url('@/static/style/JTCEE/components/form-volume.less');
+.form-must-have {
+	font-size: 30rpx;
+	color: #ff5147;
+	position: relative;
+	top: 2rpx;
+	margin-right: 3rpx;
+}
+
+.common-form-item {
+	width: calc(100% - 40rpx);
+	height: 120rpx;
+	margin: 0 auto;
+	border-bottom: 1rpx solid @topic-split;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.form-item-title {
+		width: 40%;
+		font-size: 28rpx;
+		color: #000000;
+		padding-left: 10rpx;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		.form-item-title-icon {
+			margin-left: 12rpx;
+			position: relative;
+			top: 3rpx;
+		}
+	}
+
+	.form-item-title-long {
+		width: 60%;
+	}
+
+	.form-item-arrow {
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		.form-item-arrow-icon {
+			position: relative;
+			top: 1rpx;
+			margin-left: 5rpx;
+		}
+		.form-item-common-icon {
+			top: 0;
+		}
+		.form-item-unit {
+			display: inline-block;
+			width: 42rpx;
+		}
+	}
+
+	// input输入框
+	@input-padding: 10rpx;
+	.form-input-default {
+		width: calc(100% - @input-padding * 2);
+		height: 100%;
+		font-size: 30rpx;
+		color: #000000;
+		padding: 0 @input-padding;
+		text-align: right;
+	}
+	.form-input-placeholder {
+		font-size: 28rpx;
+		color: #888888;
+		text-align: right;
+	}
+
+	// radio按钮，大小样式在app.vue中
+	.form-radio-default {
+		padding-right: 10rpx;
+		.form-radio-default-label {
+			margin-left: 26rpx;
+			color: #4a4a4a;
+			font-size: 28rpx;
+		}
+	}
+}
+
+// switch按钮
+.form-switch-default {
+	transform: scale(0.8);
+}
+
+.common-form-item:last-child {
+	border-bottom: 1rpx solid transparent;
+}
+
+// address_add详细地址
+.common-form-item-big {
+	width: calc(100% - 50rpx);
+	margin: 0 auto;
+	.common-form-item-big-title {
+		height: 120rpx;
+		padding-left: 5rpx;
+		font-size: 28rpx;
+		// color: #888888;
+		color: #313131;
+		line-height: 120rpx;
+	}
+	.common-form-item-big-import {
+		width: calc(100% - 10rpx);
+		height: 227rpx;
+		margin: 0 auto;
+		padding-bottom: 5rpx;
+		display: flex;
+		justify-content: space-between;
+		.common-form-item-big-import-box {
+			width: calc(50% - 20rpx);
+			height: 200rpx;
+			border-radius: 20rpx;
+			border: 1rpx solid #e9e9e9;
+			overflow: hidden;
+			position: relative;
+			.common-form-item-big-import-img {
+				width: 72rpx;
+				height: 72rpx;
+				display: block;
+				margin: 43rpx auto 0 auto;
+			}
+			.common-form-item-big-import-text {
+				display: block;
+				margin: 15rpx auto 0 auto;
+				text-align: center;
+				font-size: 28rpx;
+				// color: #888888;
+				color: #4a4a4a;
+			}
+			.common-form-item-big-result-img {
+				width: 100%;
+				height: 100%;
+			}
+			.common-form-item-big-result-icon {
+				position: absolute;
+				top: 10rpx;
+				right: 20rpx;
+			}
+		}
+	}
+	@textarea-padding: 20rpx;
+	.common-form-item-big-textaera {
+		width: 100%;
+		height: 240rpx;
+		margin: 0 auto;
+		padding-bottom: 25rpx;
+		.form-textaera-must-have {
+			position: relative;
+			top: 4rpx;
+		}
+		.form-textarea-default {
+			width: calc(100% - @textarea-padding * 2);
+			height: calc(100% - @textarea-padding * 2);
+			border-radius: 20rpx;
+			border: 1rpx solid #e9e9e9;
+			// background-color: #F8F8F8;
+			padding: @textarea-padding;
+			font-size: 28rpx;
+		}
+	}
+}
+
+.common-form-item-note {
+	width: calc(100% - 50rpx);
+	margin: 0 auto;
+	.common-form-item-note-title {
+		height: 76rpx;
+		padding-left: 5rpx;
+		font-size: 30rpx;
+		color: #313131;
+		line-height: 76rpx;
+	}
+	@textarea-padding: 20rpx;
+	.common-form-item-note-textaera {
+		width: 100%;
+		height: 200rpx;
+		margin: 0 auto;
+		padding-bottom: 26rpx;
+		.form-textarea-default {
+			width: calc(100% - @textarea-padding * 2);
+			height: calc(100% - @textarea-padding * 2);
+			border-radius: 20rpx;
+			background-color: #f8f8f8;
+			padding: @textarea-padding;
+			font-size: 28rpx;
+		}
+	}
+
+	.common-form-item-note-title-high {
+		height: 100rpx;
+		line-height: 110rpx;
+		font-size: 28rpx;
+		color: #000000;
+		padding-left: 5rpx;
+	}
+}
+
+.common-form-item-nosplit {
+	border-bottom: 1rpx solid transparent;
+}
+
+@common-goods-img-size: 128rpx;
+@express-card-item-width: 40rpx;
+.common-goods-box {
+	width: calc(100% - @express-card-item-width);
+	margin: 0 auto;
+	padding-bottom: 40rpx;
+	border-bottom: 1rpx solid @topic-split;
+	.common-goods-item {
+		width: 100%;
+		min-height: 130rpx;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 20rpx;
+		.common-goods-img {
+			width: @common-goods-img-size;
+			height: @common-goods-img-size;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.common-goods-content {
+			width: calc(100% - @common-goods-img-size - 20rpx);
+			.common-goods-title {
+				font-size: 26rpx;
+				color: #313131;
+				.text-ellipsis-two();
+			}
+			.common-goods-number {
+				margin: 20rpx 10rpx 0 0;
+				float: right;
+			}
+		}
+	}
+	.common-goods-item:nth-child(1) {
+		margin-top: 0;
+	}
+}
