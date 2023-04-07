@@ -1,8 +1,7 @@
 <template>
 	<view class="fx67ll-tools-box">
 		<!-- 这里需要使用 zb-drawer-LTOFE -->
-		<zb-drawer-LTOFE mode="bottom" :title="drawerTitle" :wrapperClosable="false" :visible.sync="isShowDrawer"
-			:radius="true" :height="drawerHeight"></zb-drawer-LTOFE>
+		<zb-drawer-LTOFE mode="bottom" :title="drawerTitle" :wrapperClosable="false" :visible.sync="isShowDrawer" :radius="true" :height="drawerHeight"></zb-drawer-LTOFE>
 	</view>
 </template>
 

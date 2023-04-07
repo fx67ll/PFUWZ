@@ -9,27 +9,27 @@
 			-->
 
 			<div class="fx67ll-btn-item fx67ll-btn-item-two">
-				<button class="fx67ll-btn-default" type="default" @click="getLuckyNumber"
-					:disabled="countLoading">获取今日随机号码</button>
-				<uni-icons class="fx67ll-btn-icon" type="gear-filled" :size="iconSize" @click="editLuckySetting"
-					v-if="!countLoading"></uni-icons>
-				<uni-icons class="fx67ll-btn-loading" type="spinner-cycle" :size="iconSize"
-					v-if="countLoading"></uni-icons>
+				<button class="fx67ll-btn-default" type="default" @click="getLuckyNumber" :disabled="countLoading || isDrawLoading">获取今日随机号码</button>
+				<uni-icons class="fx67ll-btn-icon" type="gear-filled" :size="iconSize" @click="editLuckySetting" v-if="!countLoading && !isDrawLoading"></uni-icons>
+				<uni-icons class="fx67ll-btn-loading" type="spinner-cycle" :size="iconSize" v-if="countLoading || isDrawLoading"></uni-icons>
 			</div>
 			<div class="fx67ll-btn-item fx67ll-btn-item-two">
-				<button class="fx67ll-btn-default" type="default" @click="importLuckyImg"
-					:disabled="countLoading">上传照片自动分析</button>
-				<uni-icons class="fx67ll-btn-icon" type="camera-filled" :size="iconSize" @click="useCamera"
-					v-if="!countLoading"></uni-icons>
-				<uni-icons class="fx67ll-btn-loading" type="spinner-cycle" :size="iconSize"
-					v-if="countLoading"></uni-icons>
+				<button class="fx67ll-btn-default" type="default" @click="importLuckyImg" :disabled="countLoading || isDrawLoading">上传照片自动分析</button>
+				<uni-icons class="fx67ll-btn-icon" type="camera-filled" :size="iconSize" @click="useCamera" v-if="!countLoading && !isDrawLoading"></uni-icons>
+				<uni-icons class="fx67ll-btn-loading" type="spinner-cycle" :size="iconSize" v-if="countLoading || isDrawLoading"></uni-icons>
+			</div>
+			<div class="fx67ll-btn-item" v-if="!isDrawLoading">
+				<button class="fx67ll-btn-default" type="warn" @click="fakeDrawLottery(true)">{{drawLottoryText}}</button>
+			</div>
+			<div class="fx67ll-btn-item fx67ll-btn-item-two" v-if="isDrawLoading">
+				<button class="fx67ll-btn-default" type="warn" @click="fakeDrawLottery(true)" :disabled="isDrawLoading">{{drawLottoryText}}</button>
+				<uni-icons class="fx67ll-btn-icon" type="minus" :size="iconSize" @click="stopDrawLottory"></uni-icons>
 			</div>
 			<div class="fx67ll-btn-item">
 				<button class="fx67ll-btn-default" type="warn" @click="getTodayLucky" :disabled="countLoading">
 					{{ !countLoading ? '点击看看今天运势如何' : `正在为您计算今日运势：${luckyRandomProgrss}%` }}
 				</button>
 			</div>
-			<!-- <div class="fx67ll-btn-item"><button class="fx67ll-btn-default" type="warn" @click="fakeDrawLottery(true)" :disabled="countLoading">fakeDrawLottery</button></div> -->
 		</div>
 		<div class="fx67ll-lucky-box" v-if="settingInfo.todayLuckyNumber">
 			<div class="fx67ll-lucky-bumber">{{ settingInfo.todayLuckyNumber }}</div>
@@ -37,24 +37,19 @@
 		</div>
 
 		<!-- 页面底部抽屉 -->
-		<zb-drawer-LTOFE mode="bottom" :title="drawerTitle" :wrapperClosable="false" :visible.sync="isShowDrawer"
-			:radius="true" :height="drawerHeight">
+		<zb-drawer-LTOFE mode="bottom" :title="drawerTitle" :wrapperClosable="false" :visible.sync="isShowDrawer" :radius="true" :height="drawerHeight">
 			<div v-if="showType === 'luckyNumber'">
 				<div id="luckyNumberText" class="fx67ll-number-box">
 					<div class="fx67ll-number-item" v-for="(item, index) in luckyNumberList" :key="item.timeStamp">
 						<!-- #ifdef H5 -->
-						<span v-for="(redNum, j) in item.lottoryNumberFirst"
-							:key="Math.random() * redNum + j">{{ redNum }}</span>
+						<span v-for="(redNum, j) in item.lottoryNumberFirst" :key="Math.random() * redNum + j">{{ redNum }}</span>
 						-
-						<span v-for="(blueNum, k) in item.lottoryNumberSecond"
-							:key="Math.random() * blueNum + k">{{ blueNum }}</span>
+						<span v-for="(blueNum, k) in item.lottoryNumberSecond" :key="Math.random() * blueNum + k">{{ blueNum }}</span>
 						<!-- #endif -->
 						<!-- #ifdef MP-WEIXIN -->
-						<span v-for="(itemFirst, j) in item.lottoryNumberFirst"
-							:key="itemFirst.key">{{ itemFirst.num }}</span>
+						<span v-for="(itemFirst, j) in item.lottoryNumberFirst" :key="itemFirst.key">{{ itemFirst.num }}</span>
 						-
-						<span v-for="(itemSecond, k) in item.lottoryNumberSecond"
-							:key="itemSecond.key">{{ itemSecond.num }}</span>
+						<span v-for="(itemSecond, k) in item.lottoryNumberSecond" :key="itemSecond.key">{{ itemSecond.num }}</span>
 						<!-- #endif -->
 					</div>
 				</div>
@@ -69,23 +64,19 @@
 			<div class="fx67ll-drawer-setting" v-if="showType === 'luckySetting'">
 				<div class="fx67ll-setting-item">
 					<span>需要随机输出的注数</span>
-					<uni-number-box :min="1" :max="5" v-model="settingInfo.luckyCount"
-						@change="luckyCountChange"></uni-number-box>
+					<uni-number-box :min="1" :max="5" v-model="settingInfo.luckyCount" @change="luckyCountChange"></uni-number-box>
 				</div>
 				<div class="fx67ll-setting-item">
 					<span>是否允许出现重复串号</span>
-					<switch class="fx67ll-setting-switch" :checked="settingInfo.isNeedRepeat"
-						@change="isNeedRepeatChange" />
+					<switch class="fx67ll-setting-switch" :checked="settingInfo.isNeedRepeat" @change="isNeedRepeatChange" />
 				</div>
 				<div class="fx67ll-setting-item">
 					<span>当日幸运数字是否要包含在内</span>
-					<switch class="fx67ll-setting-switch" :checked="settingInfo.isNeedLuckyNumber"
-						@change="isNeedLuckyNumberChange" />
+					<switch class="fx67ll-setting-switch" :checked="settingInfo.isNeedLuckyNumber" @change="isNeedLuckyNumberChange" />
 				</div>
 				<div class="fx67ll-setting-item">
 					<span>当日是否仅允许生成一次随机</span>
-					<switch class="fx67ll-setting-switch" :checked="settingInfo.isOnlyFirstToday"
-						@change="isOnlyFirstTodayChange" />
+					<switch class="fx67ll-setting-switch" :checked="settingInfo.isOnlyFirstToday" @change="isOnlyFirstTodayChange" />
 				</div>
 				<div class="fx67ll-setting-tip">
 					Tip：修改其他设置会重置 <text>"当日是否仅允许生成一次随机"</text> 设置，请手动重新配置即可
@@ -122,7 +113,7 @@
 				timer: null,
 				// 今日星期几
 				todayWeek: moment().format('E'),
-				// todayWeek: '2',
+				// todayWeek: '4',
 				// Drawer组件相关参数
 				isShowDrawer: false,
 				drawerHeight: '75%',
@@ -171,8 +162,11 @@
 					firstLuckyDate: null,
 					isCheckLuckyOver: false,
 					todayLuckyText: null,
-					luckyClickTotal: 0
-					// 模拟摇奖，包括中奖耗时，暂停摇奖，继续摇奖
+					luckyClickTotal: 0,
+					// 模拟摇奖，包括中奖耗时，暂停摇奖，继续摇奖，以及中奖号码
+					drawLottoryTimeHistory: 0,
+					isGetBigReward: false,
+					bigRewardNumber: null
 				},
 				// 幸运进度条
 				luckyRandomProgrss: 0,
@@ -183,7 +177,15 @@
 				// 是否正在运算
 				countLoading: false,
 				// 计时开始
-				countStartTime: null
+				countStartTime: null,
+				// 模拟摇奖的定时器
+				fakeDrawTimer: null,
+				// 模拟摇奖计时
+				drawLottoryText: '模拟摇奖',
+				// 是否正在模拟
+				isDrawLoading: false,
+				// 模拟摇奖计时
+				drawLottoryTime: 0
 			};
 		},
 		onLoad() {
@@ -200,13 +202,29 @@
 		},
 		onHide() {
 			// 销毁时清除定时器
+			clearInterval(this.timer);
+			clearTimeout(this.luckyTimer);
+			clearTimeout(this.fakeDrawTimer);
 			this.timer = null;
 			this.luckyTimer = null;
+			this.fakeDrawTimer = null;
+			// 隐藏时停止计时
+			if (this.isDrawLoading) {
+				this.stopDrawLottory();
+			}
 		},
 		onUnload() {
 			// 销毁时清除定时器
+			clearInterval(this.timer);
+			clearTimeout(this.luckyTimer);
+			clearTimeout(this.fakeDrawTimer);
 			this.timer = null;
 			this.luckyTimer = null;
+			this.fakeDrawTimer = null;
+			// 隐藏时停止计时
+			if (this.isDrawLoading) {
+				this.stopDrawLottory();
+			}
 		},
 		methods: {
 			// 显示今日随机号码
@@ -286,8 +304,7 @@
 				if (!this.settingInfo.isNeedRepeat) {
 					for (var i = 0; i < this.luckyNumberList.length; i++) {
 						// #ifdef H5
-						if (_.isEqual(tempList, this.luckyNumberList[i].lottoryNumberFirst) || _.isEqual(tempList, this
-								.luckyNumberList[i].lottoryNumberSecond)) {
+						if (_.isEqual(tempList, this.luckyNumberList[i].lottoryNumberFirst) || _.isEqual(tempList, this.luckyNumberList[i].lottoryNumberSecond)) {
 							isSameNumber = true;
 						}
 						// #endif
@@ -552,6 +569,8 @@
 					}
 					// 初始化完缓存配置项后初始化今日幸运数字
 					this.initTodayLuckyNumber(settingInfo.luckyNumberDate);
+					// 初始化模拟摇奖配置
+					this.initDrawLottory();
 				} else {
 					// 初始化完缓存配置项后初始化今日幸运数字
 					this.initTodayLuckyNumber(null);
@@ -573,6 +592,8 @@
 						}
 						// 初始化完缓存配置项后初始化今日幸运数字
 						self.initTodayLuckyNumber(settingInfo.luckyNumberDate);
+						// 初始化模拟摇奖配置
+						self.initDrawLottory();
 					},
 					fail: function() {
 						// 如果第一次进入没有缓存配置，仍然需要生成当日幸运数字
@@ -584,6 +605,7 @@
 			// 获取今日幸运数字
 			// Math.random()*(m-n)+n -->> 生成 [ n, m ) 范围内的随机数（大于等于n，小于m）
 			initTodayLuckyNumber(luckyNumberDate) {
+				console.log(luckyNumberDate);
 				if (!luckyNumberDate || luckyNumberDate !== moment().format('YYYY-MM-DD')) {
 					this.settingInfo.luckyNumberDate = moment().format('YYYY-MM-DD');
 					if (this.todayWeek === '1' || this.todayWeek === '3' || this.todayWeek === '6') {
@@ -593,6 +615,10 @@
 						this.settingInfo.todayLuckyNumber = Math.floor(Math.random() * (34 - 1) + 1);
 					}
 					this.saveLuckySettingLocal();
+				} else {
+					if (this.todayWeek === '5') {
+						this.settingInfo.todayLuckyNumber = '0';
+					}
 				}
 			},
 			// 打开摇奖设置
@@ -844,75 +870,210 @@
 			},
 			// 获取今日运势
 			getTodayLucky() {
-				const self = this;
-				if (this.checkIsCountLucky()) {
-					this.isLuckyDay(true, 0);
-					this.settingInfo.firstLuckyDate = moment().format('YYYY-MM-DD');
+				if (this.todayWeek === '5') {
+					uni.showToast({
+						title: '非常抱歉，今天是星期五，无法获取今日运势~',
+						icon: 'none',
+						duration: 1998
+					});
 				} else {
-					if (this.settingInfo.luckyClickTotal < 8) {
-						this.settingInfo.luckyClickTotal += 1;
-						const firstShowDuration = 300;
-						uni.showToast({
-							title: '今天已经计算过了~',
-							icon: 'none',
-							duration: firstShowDuration
-						});
-						setTimeout(function() {
-							uni.showToast({
-								title: self.settingInfo.todayLuckyText,
-								icon: 'none',
-								duration: 1998
-							});
-						}, firstShowDuration + 100);
+					const self = this;
+					if (this.checkIsCountLucky()) {
+						this.isLuckyDay(true, 0);
+						this.settingInfo.firstLuckyDate = moment().format('YYYY-MM-DD');
 					} else {
-						// 重复点击达到8次后，触发彩蛋，允许重新计算当日是否幸运
-						const firstShowDuration = 1998;
-						uni.showToast({
-							title: '恭喜你触发彩蛋，重新计算今日运势！',
-							icon: 'none',
-							duration: firstShowDuration
-						});
-						this.settingInfo.firstLuckyDate = null;
-						this.settingInfo.isCheckLuckyOver = false;
-						this.settingInfo.todayLuckyText = null;
-						this.settingInfo.luckyClickTotal = 0;
+						if (this.settingInfo.luckyClickTotal < 8) {
+							this.settingInfo.luckyClickTotal += 1;
+							const firstShowDuration = 888;
+							uni.showToast({
+								title: '今天已经计算过了鸭~',
+								icon: 'none',
+								duration: firstShowDuration
+							});
+							setTimeout(function() {
+								if (self.settingInfo.todayLuckyText) {
+									uni.showToast({
+										title: self.settingInfo.todayLuckyText,
+										icon: 'none',
+										duration: 1998
+									});
+								}
+							}, firstShowDuration + 100);
+						} else {
+							// 触发彩蛋同时禁用点击
+							this.countLoading = true;
+							// 重复点击达到8次后，触发彩蛋，允许重新计算当日是否幸运
+							const firstShowDuration = 1998;
+							uni.showToast({
+								title: '恭喜你触发彩蛋，重新计算今日运势！',
+								icon: 'none',
+								duration: firstShowDuration
+							});
+							this.settingInfo.firstLuckyDate = null;
+							this.settingInfo.isCheckLuckyOver = false;
+							this.settingInfo.todayLuckyText = null;
+							this.settingInfo.luckyClickTotal = 0;
+							this.saveLuckySettingLocal();
+							setTimeout(function() {
+								self.getTodayLucky();
+							}, firstShowDuration + 100);
+						}
 						this.saveLuckySettingLocal();
-						setTimeout(function() {
-							self.getTodayLucky();
-						}, firstShowDuration + 100);
 					}
 				}
-				this.saveLuckySettingLocal();
+			},
+			// 计时用工具函数，获取时分秒文字
+			// start: 时间差开始
+			// end: 时间差结束
+			getTimeDurationText(totalSeconds) {
+				const currentTime = moment.duration(totalSeconds, "seconds");
+				return moment({
+					h: currentTime.hours(),
+					m: currentTime.minutes(),
+					s: currentTime.seconds(),
+				}).format("HH:mm:ss");
 			},
 			// 模拟摇奖
 			fakeDrawLottery(isFirst) {
+				if (this.todayWeek === '5') {
+					uni.showToast({
+						title: '非常抱歉，今天是星期五，不提供模拟摇奖~',
+						icon: 'none',
+						duration: 1998
+					});
+				} else {
+					const self = this;
+					// 记录开始摇奖状态  
+					this.isDrawLoading = true;
+					// 判断是否事第一次点击
+					if (isFirst) {
+						this.countStartTime = moment().format('X');
+						this.drawLottoryTime = this.settingInfo.drawLottoryTimeHistory;
+					} else {
+						const nowTime = moment().format('X');
+						this.drawLottoryTime = this.settingInfo.drawLottoryTimeHistory + this.getTimeDuration(this.countStartTime, nowTime, 'milliseconds');
+						console.log('总耗时：', this.drawLottoryTime, '秒');
+						this.drawLottoryText = `模拟摇奖中，已耗时：${this.getTimeDurationText(this.drawLottoryTime)}`;
+					}
+					// 模拟摇奖，并判断是否中奖
+					this.settingInfo.luckyCount = 2;
+					this.settingInfo.isOnlyFirstToday = false;
+					// 第一次摇号
+					this.packageRandomList();
+					// H5和微信的数据结构有些区别，这里要分开处理
+					// #ifdef H5
+					const yourNumber = this.luckyNumberList[1].lottoryNumberFirst.concat(this.luckyNumberList[1].lottoryNumberSecond).join(',');
+					// #endif
+					// H5和微信的数据结构有些区别，这里要分开处理
+					// #ifdef MP-WEIXIN
+					const yourNumberTempList = [];
+					this.luckyNumberList[1].lottoryNumberFirst.forEach(item => {
+						yourNumberTempList.push(item.num);
+					});
+					this.luckyNumberList[1].lottoryNumberSecond.forEach(item => {
+						yourNumberTempList.push(item.num);
+					});
+					const yourNumber = yourNumberTempList.join(',');
+					// #endif
+					// 第二次摇号
+					this.packageRandomList();
+					// H5和微信的数据结构有些区别，这里要分开处理
+					// #ifdef H5
+					const rightNumber = this.luckyNumberList[1].lottoryNumberFirst.concat(this.luckyNumberList[1].lottoryNumberSecond).join(',');
+					// #endif
+					// H5和微信的数据结构有些区别，这里要分开处理
+					// #ifdef MP-WEIXIN
+					const rightNumberTempList = [];
+					this.luckyNumberList[1].lottoryNumberFirst.forEach(item => {
+						rightNumberTempList.push(item.num);
+					});
+					this.luckyNumberList[1].lottoryNumberSecond.forEach(item => {
+						rightNumberTempList.push(item.num);
+					});
+					const rightNumber = rightNumberTempList.join(',');
+					// #endif
+					const isWin = _.isEqual(yourNumber, rightNumber);
+					console.log(`${yourNumber}\n${rightNumber}\n是否中奖：${isWin}`);
+					// 若中奖，结束递归摇奖  
+					if (isWin) {
+						// 中奖了停止摇奖状态
+						this.isDrawLoading = false;
+						// 记录中奖状态和号码
+						console.log('今日模拟中奖号码：', rightNumber);
+						this.settingInfo.bigRewardNumber = rightNumber;
+						this.settingInfo.isGetBigReward = true;
+						this.saveLuckySettingLocal();
+					} else {
+						clearTimeout(this.fakeDrawTimer);
+						this.fakeDrawTimer = null;
+						// #ifdef H5
+						const drawGap = 1;
+						// #endif
+						// #ifdef MP-WEIXIN
+						const drawGap = 88;
+						// #endif
+						this.fakeDrawTimer = setTimeout(function() {
+							self.fakeDrawLottery(false);
+						}, drawGap);
+					}
+				}
+			},
+			// 停止计时
+			stopDrawLottory() {
 				const self = this;
-				if (isFirst) {
-					this.countStartTime = moment().format('X');
+				this.isDrawLoading = false;
+				const drawLottoryTimeTemp = this.drawLottoryTime;
+				// #ifdef H5
+				this.initCacheSetting();
+				this.drawLottoryText = `继续摇奖，已耗时：${this.getTimeDurationText(drawLottoryTimeTemp)}`;
+				this.settingInfo.drawLottoryTimeHistory = drawLottoryTimeTemp;
+				this.saveLuckySettingLocal();
+				// #endif
+				// #ifdef MP-WEIXIN
+				// 微信回调有延时，这里直接拷贝 `this.initCacheSetting()` 方法过来
+				wx.getStorage({
+					key: 'settingInfo',
+					success: function(res) {
+						let settingInfo = JSON.parse(res.data);
+						self.settingInfo = {
+							...settingInfo
+						};
+						// 如果打开了只允许一注随机则需要重新渲染当日的随机号码
+						if (self.settingInfo.isOnlyFirstToday && self.settingInfo.firstRandomDate === moment()
+							.format('YYYY-MM-DD')) {
+							self.luckyNumberList = self.settingInfo.localLuckyNumberList;
+						}
+						// 初始化完缓存配置项后初始化今日幸运数字
+						self.initTodayLuckyNumber(settingInfo.luckyNumberDate);
+						// 初始化模拟摇奖配置
+						self.initDrawLottory();
+						// 微信回调有延时，这里还原配置后保存计时
+						self.drawLottoryText = `继续摇奖，已耗时：${self.getTimeDurationText(drawLottoryTimeTemp)}`;
+						self.settingInfo.drawLottoryTimeHistory = drawLottoryTimeTemp;
+					},
+					fail: function() {
+						// 如果第一次进入没有缓存配置，仍然需要生成当日幸运数字
+						self.initTodayLuckyNumber(null);
+					}
+				});
+				this.saveLuckySettingLocal();
+				// #endif
+				clearTimeout(this.fakeDrawTimer);
+				this.fakeDrawTimer = null;
+			},
+			// 初始化摇奖状态
+			initDrawLottory() {
+				if (!this.settingInfo.isGetBigReward && this.settingInfo.drawLottoryTimeHistory > 0) {
+					this.drawLottoryText = `继续摇奖，已耗时：${this.getTimeDurationText(this.settingInfo.drawLottoryTimeHistory)}`;
 				} else {
-					const nowTime = moment().format('X');
-					console.log('正在模拟摇奖，已耗时：', this.getTimeDuration(this.countStartTime, nowTime, 'milliseconds'), '秒');
+					if (this.settingInfo.isGetBigReward) {
+						this.drawLottoryText = `已中奖，中奖号码是：${this.settingInfo.bigRewardNumber}`;
+						this.settingInfo.drawLottoryTimeHistory = 0;
+					} else {
+						this.drawLottoryText = '模拟摇奖';
+					}
 				}
-				this.settingInfo.luckyCount = 2;
-				this.settingInfo.isOnlyFirstToday = false;
-				this.packageRandomList();
-				const yourNumber = this.luckyNumberList[1].lottoryNumberFirst.concat(this.luckyNumberList[1]
-					.lottoryNumberSecond).join(',');
-				this.packageRandomList();
-				const rightNumber = this.luckyNumberList[1].lottoryNumberFirst.concat(this.luckyNumberList[1]
-					.lottoryNumberSecond).join(',');
-				const isWin = yourNumber === rightNumber;
-				console.log(yourNumber, rightNumber, isWin);
-				if (isWin) {
-					console.log('今日模拟中奖号码：', rightNumber);
-					// 还原配置
-					this.initCacheSetting();
-				} else {
-					this.luckyTimer = setTimeout(function() {
-						self.fakeDrawLottery(false);
-					}, 1);
-				}
-			}
+			},
 		}
 	};
 </script>
