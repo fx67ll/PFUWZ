@@ -814,12 +814,12 @@
 			// 判断当日是否计算过是否幸运
 			checkIsCountLucky() {
 				if (this.settingInfo.firstLuckyDate !== moment().format('YYYY-MM-DD')) {
+					return true;
+				} else {
 					if (this.settingInfo.isCheckLuckyOver) {
 						return false;
 					}
 					return true;
-				} else {
-					return false;
 				}
 			},
 			// 今天是幸运日吗
@@ -879,26 +879,28 @@
 				} else {
 					const self = this;
 					if (this.checkIsCountLucky()) {
+						this.settingInfo.luckyClickTotal = 0;
+						this.saveLuckySettingLocal();
 						this.isLuckyDay(true, 0);
 						this.settingInfo.firstLuckyDate = moment().format('YYYY-MM-DD');
 					} else {
 						if (this.settingInfo.luckyClickTotal < 8) {
 							this.settingInfo.luckyClickTotal += 1;
-							const firstShowDuration = 888;
+							const firstShowDuration = 2888;
 							uni.showToast({
-								title: '今天已经计算过了鸭~',
+								title: `今天已经计算过了，${this.settingInfo.todayLuckyText}`,
 								icon: 'none',
 								duration: firstShowDuration
 							});
-							setTimeout(function() {
-								if (self.settingInfo.todayLuckyText) {
-									uni.showToast({
-										title: self.settingInfo.todayLuckyText,
-										icon: 'none',
-										duration: 1998
-									});
-								}
-							}, firstShowDuration + 100);
+							// setTimeout(function() {
+							// 	if (self.settingInfo.todayLuckyText) {
+							// 		uni.showToast({
+							// 			title: self.settingInfo.todayLuckyText,
+							// 			icon: 'none',
+							// 			duration: 1998
+							// 		});
+							// 	}
+							// }, firstShowDuration + 100);
 						} else {
 							// 触发彩蛋同时禁用点击
 							this.countLoading = true;
