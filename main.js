@@ -1,6 +1,10 @@
 import App from './App'
 import messages from './locale/index'
 
+// 安装路由拦截器：跳转未注册页面时统一兜底到 404 页面
+import { setupRouteInterceptor } from '@/utils/route.js';
+setupRouteInterceptor();
+
 let i18nConfig = {
 	locale: uni.getLocale(),
 	messages

@@ -270,8 +270,16 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}
+		},
 		// JTCEE 路由结束
+
+		// 404 通用拦截页面
+		{
+			"path": "pages/404",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

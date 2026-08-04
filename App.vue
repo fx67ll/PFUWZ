@@ -1,9 +1,13 @@
 <script>
+import { handleH5DirectAccess } from '@/utils/route.js';
+
 export default {
 	onLaunch: function() {
 		// console.log('App Launch')
 		uni.setLocale('zh-Hans');
 		this.$i18n.locale = 'zh-Hans';
+		// H5 history 模式下，地址栏直接访问不存在的路径时兜底到 404 页面
+		handleH5DirectAccess();
 	},
 	onShow: function() {
 		// console.log('App Show')
