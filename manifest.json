@@ -2,7 +2,7 @@
     "name" : "PFUWZ",
     "appid" : "__UNI__95CFD70",
     "description" : "fx67ll's uni-app Projects",
-    "versionName" : "0.2.1",
+    "versionName" : "0.2.2",
     "versionCode" : 1,
     "locale" : "zh-Hans", // 设置默认语言
     "transformPx" : false,
