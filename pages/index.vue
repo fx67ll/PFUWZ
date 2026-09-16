@@ -17,6 +17,9 @@
 			<view class="fx67ll-nav-item" @click="handleToLTOFE">
 				<text class="fx67ll-link-text">每日彩票号码生成工具</text>
 			</view>
+			<view class="fx67ll-nav-item" @click="handleToMahjongReservation">
+				<text class="fx67ll-link-text">麻将室预约工具</text>
+			</view>
 			<view class="fx67ll-nav-item">
 				<view class="fx67ll-devTip">持续开发更新中......</view>
 			</view>
@@ -60,6 +63,10 @@ export default {
 		// 每日彩票号码生成工具（应用内页）
 		handleToLTOFE() {
 			openAdaptiveWindow('/pages/LTOFE/index/index');
+		},
+		// 麻将室预约交互演示（应用内页）
+		handleToMahjongReservation() {
+			openAdaptiveWindow('/pages/mahjong/reservation/index');
 		}
 	}
 };
